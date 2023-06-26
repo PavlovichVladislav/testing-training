@@ -23,10 +23,12 @@ describe("Test app", () => {
 
    test("the element appears on the page after some time`", async () => {
       render(<App />);
+      //eslint-disable-next-line
       screen.debug();
       const dataElem = await screen.findByText(/data/i);
       expect(dataElem).toBeInTheDocument();
       expect(dataElem).toHaveStyle({ color: "red" });
+      //eslint-disable-next-line
       screen.debug();
    });
 
@@ -36,7 +38,7 @@ describe("Test app", () => {
 
       expect(screen.queryByTestId("toggle-elem")).toBeNull();
       fireEvent.click(btn);
-      expect(screen.queryByTestId("toggle-elem")).toBeInTheDocument();
+      expect(screen.getByTestId("toggle-elem")).toBeInTheDocument();
       fireEvent.click(btn);
       expect(screen.queryByTestId("toggle-elem")).toBeNull();
    });
