@@ -5,7 +5,7 @@ import { Routes, Route } from 'react-router-dom';
 import MainPage from '../pages/MainPage';
 import AboutPage from '../pages/AboutPage';
 import NotFoundPage from "../pages/NotFoundPage";
-import Users from '../Users/Users';
+import Users from '../users/Users';
 import UserDetailsPage from "../pages/UserDetailsPage";
 
 const AppRouter = () => {
