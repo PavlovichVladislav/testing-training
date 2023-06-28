@@ -1,11 +1,11 @@
-import { fireEvent, render, screen } from "@testing-library/react";
+import { fireEvent, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
-import App from "./App";
+import { renderWithRouter } from "./tests/helpers/renderWithRouter";
 
 describe("Test app", () => {
    test("renders layout`", () => {
-      render(<App />);
+      renderWithRouter(null);
       const helloWorldElem = screen.getByText(/hello world/i);
       const btn = screen.getByRole("button");
       const input = screen.getByPlaceholderText(/input value/i);
@@ -16,13 +16,13 @@ describe("Test app", () => {
    });
 
    test("elem does not exist on page`", () => {
-      render(<App />);
+      renderWithRouter();
       const helloElem = screen.queryByText(/hello2/i);
       expect(helloElem).toBeNull();
    });
 
    test("the element appears on the page after some time`", async () => {
-      render(<App />);
+      renderWithRouter();
       //eslint-disable-next-line
       screen.debug();
       const dataElem = await screen.findByText(/data/i);
@@ -33,7 +33,7 @@ describe("Test app", () => {
    });
 
    test("CLICK EVENT`", async () => {
-      render(<App />);
+      renderWithRouter();
       const btn = screen.getByTestId("toggle-button");
 
       expect(screen.queryByTestId("toggle-elem")).toBeNull();
@@ -44,7 +44,7 @@ describe("Test app", () => {
    });
 
    test("INPUT EVENT`", async () => {
-      render(<App />);
+      renderWithRouter();
       const input = screen.getByPlaceholderText(/input value/i);
       expect(screen.queryByTestId("value-elem")).toContainHTML('');
 

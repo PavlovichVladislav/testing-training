@@ -4,9 +4,9 @@ import Users from "./Users";
 
 import axios from "axios";
 import { MemoryRouter, Route, Routes } from "react-router-dom";
-import UserDetailsPage from "../pages/UserDetailsPage";
-import AppRouter from "../router/AppRouter";
-import { renderWithRouter } from "../tests/helpers/renderWithRouter";
+import UserDetailsPage from "../../pages/UserDetailsPage";
+import AppRouter from "../../router/AppRouter";
+import { renderWithRouter } from "../../tests/helpers/renderWithRouter";
 
 jest.mock("axios");
 

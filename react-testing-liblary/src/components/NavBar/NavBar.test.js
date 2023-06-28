@@ -1,10 +1,10 @@
 import { renderWithRouter } from "../../tests/helpers/renderWithRouter";
-import NavBar from "./NavBar";
+import Navbar from "./Navbar";
 import { fireEvent, screen } from "@testing-library/react";
 
 describe("USERS TEST", () => {
    test("test main link", async () => {
-      renderWithRouter(<NavBar />, '/users');
+      renderWithRouter(<Navbar />, '/users');
       const mainLink = screen.getByTestId("main-link");
 
       fireEvent.click(mainLink);
@@ -12,7 +12,7 @@ describe("USERS TEST", () => {
    });
 
    test("test about link", async () => {
-    renderWithRouter(<NavBar />);
+    renderWithRouter(<Navbar />);
     const aboutLink = screen.getByTestId("about-link");
 
     fireEvent.click(aboutLink);
@@ -20,7 +20,7 @@ describe("USERS TEST", () => {
  });
 
  test("test users link", async () => {
-    renderWithRouter(<NavBar />);
+    renderWithRouter(<Navbar />);
     const usersLink = screen.getByTestId("users-link");
 
     fireEvent.click(usersLink);
