@@ -14,7 +14,7 @@ export const TestComponent = () => {
    }, []);
 
    return (
-      <div className="App">
+      <div className="App-test">
          <h1 data-testid="value-elem">{value}</h1>
          {toggle && <div data-testid="toggle-elem">toggle</div>}
          {data && <div style={{ color: "red" }}>data</div>}

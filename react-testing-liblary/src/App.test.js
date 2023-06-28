@@ -1,13 +1,14 @@
 import { fireEvent, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
-import { renderWithRouter } from "./tests/helpers/renderWithRouter";
+import { renderTestApp } from "./tests/helpers/renderTestApp";
 
 describe("Test app", () => {
    test("renders layout`", () => {
-      renderWithRouter(null);
+      renderTestApp(null);
       const helloWorldElem = screen.getByText(/hello world/i);
-      const btn = screen.getByRole("button");
+      // const btn = screen.getByRole("button"); // плохой способ, много совпадений
+      const btn = screen.getByTestId("toggle-button");
       const input = screen.getByPlaceholderText(/input value/i);
 
       expect(helloWorldElem).toBeInTheDocument();
@@ -16,13 +17,13 @@ describe("Test app", () => {
    });
 
    test("elem does not exist on page`", () => {
-      renderWithRouter();
+      renderTestApp();
       const helloElem = screen.queryByText(/hello2/i);
       expect(helloElem).toBeNull();
    });
 
    test("the element appears on the page after some time`", async () => {
-      renderWithRouter();
+      renderTestApp();
       //eslint-disable-next-line
       screen.debug();
       const dataElem = await screen.findByText(/data/i);
@@ -33,7 +34,7 @@ describe("Test app", () => {
    });
 
    test("CLICK EVENT`", async () => {
-      renderWithRouter();
+      renderTestApp();
       const btn = screen.getByTestId("toggle-button");
 
       expect(screen.queryByTestId("toggle-elem")).toBeNull();
@@ -44,7 +45,7 @@ describe("Test app", () => {
    });
 
    test("INPUT EVENT`", async () => {
-      renderWithRouter();
+      renderTestApp();
       const input = screen.getByPlaceholderText(/input value/i);
       expect(screen.queryByTestId("value-elem")).toContainHTML('');
 

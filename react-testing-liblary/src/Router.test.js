@@ -1,15 +1,11 @@
-import { fireEvent, render, screen } from "@testing-library/react";
+import { fireEvent, screen } from "@testing-library/react";
 
-import App from "./App";
-import { MemoryRouter } from "react-router-dom";
+import { renderTestApp } from "./tests/helpers/renderTestApp";
 
 describe("Test app", () => {
    test("Router test`", () => {
-      render(
-         <MemoryRouter>
-            <App />
-         </MemoryRouter>
-      );
+      renderTestApp();
+
       const mainLink = screen.getByTestId("main-link");
       const aboutLink = screen.getByTestId("about-link");
 
@@ -21,11 +17,7 @@ describe("Test app", () => {
    });
 
    test("Not found route test`", () => {
-      render(
-         <MemoryRouter initialEntries={["/helloworld"]}>
-            <App />
-         </MemoryRouter>
-      );
+      renderTestApp(null, { route: "/helloworld", state: {} });
 
       expect(screen.getByTestId("not-found-page")).toBeInTheDocument();
    });
