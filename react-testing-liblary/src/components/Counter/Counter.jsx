@@ -19,13 +19,10 @@ const Counter = () => {
    return (
       <div>
          <h1 data-testid='counter-title'>value = {value}</h1>
-         <button data-testid='increment' onClick={onIncr}>incr</button>
-         <button data-testid='decrement' onClick={onDecr}>decr</button>
+         <button data-testid='increment-button' onClick={onIncr}>incr</button>
+         <button data-testid='decrement-button' onClick={onDecr}>decr</button>
       </div>
    );   
 };
-
-
-console.log(increment());
 
 export default Counter;
