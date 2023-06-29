@@ -30,7 +30,7 @@ class UserPage extends Page {
          if (!usersCount) {
             throw new Error("Пользователи не найдены");
          }
-         
+
          await this.usersItems[0].$("#user-delete").click();
 
          const usersCountAfterDelete = await this.usersItems.length;

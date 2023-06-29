@@ -1,17 +1,13 @@
 {
-  "name": "react-testing-liblary",
+  "name": "screen-testing",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@reduxjs/toolkit": "^1.9.5",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
-    "axios": "^1.4.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-redux": "^8.1.1",
-    "react-router-dom": "^6.14.0",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
@@ -20,7 +16,6 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "test:e2e": "npx wdio run ./wdio.conf.js",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
@@ -44,7 +39,6 @@
     ]
   },
   "devDependencies": {
-    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@storybook/addon-essentials": "^7.0.24",
     "@storybook/addon-interactions": "^7.0.24",
     "@storybook/addon-links": "^7.0.24",
@@ -53,24 +47,25 @@
     "@storybook/react": "^7.0.24",
     "@storybook/react-webpack5": "^7.0.24",
     "@storybook/testing-library": "^0.0.14-next.2",
-    "@wdio/cli": "^8.11.2",
-    "@wdio/local-runner": "^8.11.2",
-    "@wdio/mocha-framework": "^8.11.0",
-    "@wdio/spec-reporter": "^8.11.2",
     "babel-plugin-named-exports-order": "^0.0.2",
-    "chromedriver": "^114.0.2",
     "eslint-plugin-storybook": "^0.6.12",
     "prop-types": "^15.8.1",
     "storybook": "^7.0.24",
-    "wdio-chromedriver-service": "^8.1.1",
     "webpack": "^5.88.1"
   },
-  "jest": {
-    "transform": {
-      "^.+\\.[t|j]sx?$": "babel-jest"
-    },
-    "transformIgnorePatterns": [
-      "node_modules/(?!@shotgunjed)/"
-    ]
+  "loki": {
+    "configurations": {
+      "chrome.laptop": {
+        "target": "chrome.app",
+        "width": 1366,
+        "height": 768,
+        "deviceScaleFactor": 1,
+        "mobile": false
+      },
+      "chrome.iphone7": {
+        "target": "chrome.app",
+        "preset": "iPhone 7"
+      }
+    }
   }
 }
